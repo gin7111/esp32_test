@@ -14,7 +14,7 @@ import time
 #------------------------------
 
 led2 = PWM(Pin(2, Pin.OUT), freq=20000)
-#led2.init()#初始化
+led2.init()#初始化
 #led2.freq(20000) #控制频率
 #led2.duty() #控制占空比默认50%
 # time.sleep(5)

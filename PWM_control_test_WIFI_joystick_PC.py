@@ -26,7 +26,7 @@ size = [500, 1000]
 
 #socket传输数据用的网络设置--------------------
 host = ''#主机ip
-port = 8088#主机端口
+port = 8082#主机端口
 datasize = 1024
 addr = (host, port)
 recvip = '192.168.31.253'#接收ip
