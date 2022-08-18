@@ -22,7 +22,7 @@ def do_connect():
     wlan.active(True)
     if not wlan.isconnected():
         print('连接到网络：')
-        wlan.connect('YCKZ', 'qmhdwifi')
+        wlan.connect('gin71', 'qmhdwifi')
         i = 1
         while not wlan.isconnected():
             print('正在连接，请稍后...{}'.format(i))
