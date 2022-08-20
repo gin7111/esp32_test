@@ -29,7 +29,7 @@ host = ''#主机ip
 port = 8082#主机端口
 datasize = 1024
 addr = (host, port)
-recvip = '192.168.197.199'#接收ip
+recvip = '192.168.4.1'#接收ip
 recvport = 7788#接收端口
 recvddr = (recvip, recvport)
 

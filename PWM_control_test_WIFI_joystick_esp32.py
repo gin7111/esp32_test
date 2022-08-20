@@ -16,19 +16,32 @@ import network
 from machine import Pin,PWM
 
 
-#连接WIFI，得到IP地址
-def do_connect():
-    wlan = network.WLAN(network.STA_IF)
-    wlan.active(True)
-    if not wlan.isconnected():
-        print('连接到网络：')
-        wlan.connect('gin71', 'qmhdwifi')
-        i = 1
-        while not wlan.isconnected():
-            print('正在连接，请稍后...{}'.format(i))
-            i += 1
-            utime.sleep(1)
-    print('已经连接到网络，本机ip地址为：', wlan.ifconfig())
+# #连接WIFI，得到IP地址
+# def do_connect():
+#     wlan = network.WLAN(network.STA_IF)
+#     wlan.active(True)
+#     if not wlan.isconnected():
+#         print('连接到网络：')
+#         wlan.connect('gin71', 'qmhdwifi')
+#         i = 1
+#         while not wlan.isconnected():
+#             print('正在连接，请稍后...{}'.format(i))
+#             i += 1
+#             utime.sleep(1)
+#     print('已经连接到网络，本机ip地址为：', wlan.ifconfig())
+
+#创建WIFI热点
+def espwifi():
+    apessid = 'ESPap'
+    appassword = 'espdwifi'
+    #默认ip = ('192.168.4.1', '255.255.255.0', '192.168.4.1', '0.0.0.0')
+    
+    ap = network.WLAN(network.AP_IF)
+    ap.config(essid=apessid,password=appassword)
+    ap.active(True)
+    print('热点已开启，', apessid, '：', appassword)
+    print('本机ip地址：', ap.ifconfig())
+    return ap
 
 #创建socket套接字
 def start_udp():
@@ -54,7 +67,7 @@ def pwmdutymap(data):
 #---------------------------------------------------------------------------
 def main():
 
-    do_connect()#连接WIFI
+    ap = espwifi()#连接WIFI
 
     udp_socket = start_udp()#创建socket套接字
 

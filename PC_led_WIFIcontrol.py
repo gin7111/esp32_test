@@ -18,7 +18,7 @@ def do_connect():#连接WiFi网络并返回本设备IP地址
     wlan.active(True)
     if not wlan.isconnected():
         print('connecting to network...')
-        wlan.connect('gin71', 'qmhdwifi')
+        wlan.connect('YCKZ', 'qmhdwifi')
         i = 1
         while not wlan.isconnected():
             print("正在连接...{}".format(i))
