@@ -1,3 +1,4 @@
+import machine
 from machine import Pin, PWM
 import time
 #----------------------
@@ -13,7 +14,7 @@ import time
 # pwm0.duty(256)             # set duty cycle from 0 to 1023 as a ratio duty/1023, (now 25%)
 #------------------------------
 
-led2 = PWM(Pin(2, Pin.OUT), freq=20000)
+led2 = PWM(Pin(2, Pin.OUT), freq=1)
 led2.init()#初始化
 #led2.freq(20000) #控制频率
 #led2.duty() #控制占空比默认50%
